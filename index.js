@@ -291,10 +291,10 @@ function sanskrittransliterate(type, direction, textLa, textSa) {
   }
   /*  Use of NPM after install
 
-    sanskrittransliterate("SLP","latin2devanagari","saMskfta",""); // Expected return 'संस्कृता'
-    sanskrittransliterate("HK","latin2devanagari","saMskRtA",""); // Expected return 'संस्कृता'
-    sanskrittransliterate("IAST","latin2devanagari","saṃskṛta",""); // Expected return 'संस्कृता'
-    sanskrittransliterate("ISO","latin2devanagari","samskr̥ta",""); // Expected return 'संस्कृता'
+    sanskrittransliterate("SLP","latin2devanagari","saMskfta",""); // Expected return 'संस्कृत'
+    sanskrittransliterate("HK","latin2devanagari","saMskRta",""); // Expected return 'संस्कृत'
+    sanskrittransliterate("IAST","latin2devanagari","saṃskṛta",""); // Expected return 'संस्कृत'
+    sanskrittransliterate("ISO","latin2devanagari","samskr̥ta",""); // Expected return 'संस्कृत'
 
     sanskrittransliterate("ISO","devanagari2latin","","संस्कृता"); // Expected return 'samskr̥ta'
   */
