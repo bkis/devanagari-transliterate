@@ -1,0 +1,30 @@
+{
+  "name": "devanagari-transliterate",
+  "version": "1.0.0",
+  "description": "Transliterator between देवनागरी (devanāgarī) and Latin script based on IAST, Harvard-Kyoto, SLP-1 & ISO-15919 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vyshantha/devanagari-transliterate.git"
+  },
+  "keywords": [
+    "transliterate",
+    "devanagari",
+    "sanskrit",
+    "ISO-15919",
+    "IAST",
+    "Harvard-Kyoto",
+    "SLP-1",
+    "latin",
+    "script"
+  ],
+  "author": "Vyshantha Simha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vyshantha/devanagari-transliterate/issues"
+  },
+  "homepage": "https://github.com/Vyshantha/devanagari-transliterate#readme"
+}
