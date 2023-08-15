@@ -1,14 +1,5 @@
-function sanskrittransliterate(type, direction, textLa, textSa) {
-  /*  
-    Devanagari : https://en.wikipedia.org/wiki/Devanagari
-    Devanagari Transliterations : https://en.wikipedia.org/wiki/Devanagari_transliteration
-    Devanagari Unicode Block : https://www.unicode.org/charts/PDF/U0900.pdf
-    Devanagari Extended Unicode Block : https://www.unicode.org/charts/PDF/UA8E0.pdf
-    Devanagari Extended-A Unicode Block : https://www.unicode.org/charts/PDF/U11B00.pdf
-    Vedic Extensions Unicode Block : https://www.unicode.org/charts/PDF/U1CD0.pdf  
-  */
-
-  if (textLa && direction == "latin2devanagari") {
+function sanskrittransliterate(type, direction, input) {
+  if (input && direction == "latin2devanagari") {
     var latinToDevanagari;
     var diacritics;
     var anuswaraEndings;
@@ -42,7 +33,7 @@ function sanskrittransliterate(type, direction, textLa, textSa) {
         Jihvamuliya and upadhmaniya are encoded as "Z" and "V" respectively 
       */
         
-      textLa = textLa.replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("f","r̥").replaceAll("F","r̥̄").replaceAll("x","l̥").replaceAll("X","l̥̄").replaceAll("e","ē").replaceAll("E","ai").replaceAll("o","ō").replaceAll("O","au").replaceAll("M","aṁ").replaceAll("H","aḥ").replaceAll("~","m̐").replaceAll("K","kh").replaceAll("G","gh").replaceAll("N","ṅ").replaceAll("C","ch").replaceAll("J","jh").replaceAll("Y","ñ").replaceAll("w","ṭ").replaceAll("W","ṭh").replaceAll("q","ḍ").replaceAll("Q","ḍh").replaceAll("R","ṇ").replaceAll("T","th").replaceAll("D","dh").replaceAll("P","ph").replaceAll("B","bh").replaceAll("S","ś").replaceAll("z","ṣ").replaceAll("L","ḷ").replaceAll("/","\u0952").replaceAll("\\","\u0951").replaceAll("^","\u1ce0").replaceAll("Z","\u1CF5").replaceAll("V","\u1CF6");
+      input = input.replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("f","r̥").replaceAll("F","r̥̄").replaceAll("x","l̥").replaceAll("X","l̥̄").replaceAll("e","ē").replaceAll("E","ai").replaceAll("o","ō").replaceAll("O","au").replaceAll("M","aṁ").replaceAll("H","aḥ").replaceAll("~","m̐").replaceAll("K","kh").replaceAll("G","gh").replaceAll("N","ṅ").replaceAll("C","ch").replaceAll("J","jh").replaceAll("Y","ñ").replaceAll("w","ṭ").replaceAll("W","ṭh").replaceAll("q","ḍ").replaceAll("Q","ḍh").replaceAll("R","ṇ").replaceAll("T","th").replaceAll("D","dh").replaceAll("P","ph").replaceAll("B","bh").replaceAll("S","ś").replaceAll("z","ṣ").replaceAll("L","ḷ").replaceAll("/","\u0952").replaceAll("\\","\u0951").replaceAll("^","\u1ce0").replaceAll("Z","\u1CF5").replaceAll("V","\u1CF6");
 
     } else if (type == "HK") {
       
@@ -58,7 +49,7 @@ function sanskrittransliterate(type, direction, textLa, textSa) {
 
       /* Harvard-Kyoto System : https://en.wikipedia.org/wiki/Harvard-Kyoto
       const HK2ISO = {"a": "a", "A": "ā", "i": "i", "I": "ī", "u": "u", "U": "ū", "R": "r̥", "RR": "r̥̄", "lR": "l̥", "lRR": "l̥̄", "e": "ē", "AI": "ai", "o": "ō", "au": "au", "aM": "aṁ", "aH": "aḥ", "k": "k", "kh": "kh", "g": "g", "gh": "gh", "G": "ṅ", "c": "c", "ch": "ch", "j": "j", "jh": "jh", "J": "ñ", "T": "ṭ", "Th": "ṭh", "D": "ḍ", "Dh": "ḍh", "N": "ṇ", "t": "t", "th": "th", "d": "d", "dh": "dh", "n": "n", "p": "p", "ph": "ph", "b": "b", "bh": "bh", "m": "m", "y": "y", "r": "r", "l": "l", "v": "v", "z": "ś", "S": "ṣ", "s": "s", "h": "h", "L": "ḷ"}; */
-      textLa = textLa.replaceAll("AI","ai").replaceAll("aM","aṁ").replaceAll("aH","aḥ").replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("lRR","l̥̄").replaceAll("RR","r̥̄").replaceAll("lR","l̥").replaceAll("R","r̥").replaceAll("e","ē").replaceAll("o","ō").replaceAll("~","m̐").replaceAll("G","ṅ").replaceAll("J","ñ").replaceAll("Th","ṭh").replaceAll("T","ṭ").replaceAll("Dh","ḍh").replaceAll("D","ḍ").replaceAll("N","ṇ").replaceAll("z","ś").replaceAll("S","ṣ").replaceAll("L","ḷ");
+      input = input.replaceAll("AI","ai").replaceAll("aM","aṁ").replaceAll("aH","aḥ").replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("lRR","l̥̄").replaceAll("RR","r̥̄").replaceAll("lR","l̥").replaceAll("R","r̥").replaceAll("e","ē").replaceAll("o","ō").replaceAll("~","m̐").replaceAll("G","ṅ").replaceAll("J","ñ").replaceAll("Th","ṭh").replaceAll("T","ṭ").replaceAll("Dh","ḍh").replaceAll("D","ḍ").replaceAll("N","ṇ").replaceAll("z","ś").replaceAll("S","ṣ").replaceAll("L","ḷ");
 
       // TODO : Vedic accents not encoded ?
       // TODO : lR - ऌ or lRR - ॡ to handle lR - लृ or lRR - लॄ resp.
@@ -76,8 +67,8 @@ function sanskrittransliterate(type, direction, textLa, textSa) {
       anunasika = { "ã": "a", "ā̃": "ā", "ĩ": "i", "ī̃": "ī", "ũ": "u", "ū̃": "ū", "r̥̃": "r̥", "ṝ̃": "r̥̄", "ẽ": "e", "ē̃": "ē", "õ": "o", "ō̃": "ō" };
 
       // IAST - ISO:15919 (Sanskrit) : https://en.wikipedia.org/wiki/International_Alphabet_of_Sanskrit_Transliteration
-      textLa = textLa.toLowerCase();
-      textLa = textLa.replaceAll("ṃ","ṁ").replaceAll("ã","m̐").replaceAll("E","Ē").replaceAll("O","Ō").replaceAll("Ṛ","R̥").replaceAll("Ṝ","R̥̄").replaceAll("Ḷ","L̥").replaceAll("Ḹ","L̥̄").replaceAll("e","ē").replaceAll("o","ō").replaceAll("ṛ","r̥").replaceAll("ṝ","r̥̄").replaceAll("ḷ","l̥").replaceAll("ḹ","l̥̄").replaceAll("Ḻ","Ḷ").replaceAll("ḻ","ḷ");
+      input = input.toLowerCase();
+      input = input.replaceAll("ṃ","ṁ").replaceAll("ã","m̐").replaceAll("E","Ē").replaceAll("O","Ō").replaceAll("Ṛ","R̥").replaceAll("Ṝ","R̥̄").replaceAll("Ḷ","L̥").replaceAll("Ḹ","L̥̄").replaceAll("e","ē").replaceAll("o","ō").replaceAll("ṛ","r̥").replaceAll("ṝ","r̥̄").replaceAll("ḷ","l̥").replaceAll("ḹ","l̥̄").replaceAll("Ḻ","Ḷ").replaceAll("ḻ","ḷ");
 
       // TODO - Vedic accent not encoded ?
 
@@ -94,95 +85,95 @@ function sanskrittransliterate(type, direction, textLa, textSa) {
 
       anunasika = { "ã": "a", "ā̃": "ā", "ĩ": "i", "ī̃": "ī", "ũ": "u", "ū̃": "ū", "r̥̃": "r̥", "ṝ̃": "r̥̄", "ẽ": "e", "ē̃": "ē", "õ": "o", "ō̃": "ō" };
 
-      textLa = textLa.toLowerCase();
+      input = input.toLowerCase();
 
       // TODO : Vedic accents not encoded ?
 
     }
 
-    for (let u = 0; u < textLa.length; u++) {
-      if (diacritics[textLa[u - 2] + textLa[u - 1] + textLa[u]]) { // Vowel 3-character
-        if (diacritics[textLa[u - 2] + textLa[u - 1] + textLa[u]] && latinToDevanagari[textLa[u - 2] + textLa[u - 1] + textLa[u]] && (textLa[u - 3] == "" || !textLa[u - 3] || textLa[u - 3] == " " || textLa[u - 3].indexOf("\n") > -1)) { // Standalone 3-character Vowel
-          resultSa = resultSa.slice(0, -1) + latinToDevanagari[textLa[u - 2] + textLa[u - 1] + textLa[u]];
+    for (let u = 0; u < input.length; u++) {
+      if (diacritics[input[u - 2] + input[u - 1] + input[u]]) { // Vowel 3-character
+        if (diacritics[input[u - 2] + input[u - 1] + input[u]] && latinToDevanagari[input[u - 2] + input[u - 1] + input[u]] && (input[u - 3] == "" || !input[u - 3] || input[u - 3] == " " || input[u - 3].indexOf("\n") > -1)) { // Standalone 3-character Vowel
+          resultSa = resultSa.slice(0, -1) + latinToDevanagari[input[u - 2] + input[u - 1] + input[u]];
         } else {
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u - 2] + textLa[u - 1] + textLa[u]];
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u - 2] + input[u - 1] + input[u]];
         }
-      } else if (!diacritics[textLa[u - 2]] && diacritics[textLa[u - 1] + textLa[u]]) { // Vowel 2-character
-        if (diacritics[textLa[u - 1] + textLa[u]] && latinToDevanagari[textLa[u - 1] + textLa[u]] && (textLa[u - 2] == "" || !textLa[u - 2] || textLa[u - 2] == " " || textLa[u - 2].indexOf("\n") > -1)) {  // Standalone 2-character Vowel
-          if (anuswaraEndings.indexOf(textLa[u + 1]) > -1 && (letterAfterAnuswara.indexOf(textLa[u + 2]) > -1 || textLa[u + 2] == " " || textLa[u + 2] == "")) {
-            resultSa = resultSa.slice(0, -1) + latinToDevanagari[textLa[u - 1] + textLa[u]] + "ं"; // Anuswara - V²A  V²AC¹ V²AC²
+      } else if (!diacritics[input[u - 2]] && diacritics[input[u - 1] + input[u]]) { // Vowel 2-character
+        if (diacritics[input[u - 1] + input[u]] && latinToDevanagari[input[u - 1] + input[u]] && (input[u - 2] == "" || !input[u - 2] || input[u - 2] == " " || input[u - 2].indexOf("\n") > -1)) {  // Standalone 2-character Vowel
+          if (anuswaraEndings.indexOf(input[u + 1]) > -1 && (letterAfterAnuswara.indexOf(input[u + 2]) > -1 || input[u + 2] == " " || input[u + 2] == "")) {
+            resultSa = resultSa.slice(0, -1) + latinToDevanagari[input[u - 1] + input[u]] + "ं"; // Anuswara - V²A  V²AC¹ V²AC²
             u = u + 1;
           } else {
-            resultSa = resultSa.slice(0, -1) + latinToDevanagari[textLa[u - 1] + textLa[u]];
+            resultSa = resultSa.slice(0, -1) + latinToDevanagari[input[u - 1] + input[u]];
           }
         } else {
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u - 1] + textLa[u]];
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u - 1] + input[u]];
         }
-      } else if (!diacritics[textLa[u - 2]] && !diacritics[textLa[u - 1]] && diacritics[textLa[u]]) { // Vowel 1-character
-        if (textLa[u] == "a" && textLa[u - 1] == " ") {
-          resultSa = resultSa.slice(0, -1) + latinToDevanagari[textLa[u]];
-        } else if (diacritics[textLa[u]] && (textLa[u - 1] == "" || !textLa[u - 1] || textLa[u - 1] == " " || textLa[u - 1].indexOf("\n") > -1)) { // Standalone 1-character Vowel
-          if (anuswaraEndings.indexOf(textLa[u + 1]) > -1 && (letterAfterAnuswara.indexOf(textLa[u + 2]) > -1 || textLa[u + 2] == " " || textLa[u + 2] == "")) {
-            resultSa = resultSa + latinToDevanagari[textLa[u]] + "ं"; // Anuswara - V¹A  V¹AC¹ V¹AC²
+      } else if (!diacritics[input[u - 2]] && !diacritics[input[u - 1]] && diacritics[input[u]]) { // Vowel 1-character
+        if (input[u] == "a" && input[u - 1] == " ") {
+          resultSa = resultSa.slice(0, -1) + latinToDevanagari[input[u]];
+        } else if (diacritics[input[u]] && (input[u - 1] == "" || !input[u - 1] || input[u - 1] == " " || input[u - 1].indexOf("\n") > -1)) { // Standalone 1-character Vowel
+          if (anuswaraEndings.indexOf(input[u + 1]) > -1 && (letterAfterAnuswara.indexOf(input[u + 2]) > -1 || input[u + 2] == " " || input[u + 2] == "")) {
+            resultSa = resultSa + latinToDevanagari[input[u]] + "ं"; // Anuswara - V¹A  V¹AC¹ V¹AC²
             u = u + 1;
           } else {
-            resultSa = resultSa.slice(0, -1) + latinToDevanagari[textLa[u]];
+            resultSa = resultSa.slice(0, -1) + latinToDevanagari[input[u]];
           }
         } else {
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u]];
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u]];
         }
-      } else if (latinToDevanagari[textLa[u - 1] + textLa[u] + "a"] || (latinToDevanagari[textLa[u - 2] + textLa[u - 1] + "a"] && textLa[u] == "a")) { // Consonant 2-character
-        if (diacritics[textLa[u] + textLa[u + 1] + textLa[u + 2]]) { // Consonant-Vowel 2-character 3-character
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u] + textLa[u + 1] + textLa[u + 2]];
-        } else if (diacritics[textLa[u] + textLa[u + 1]]) { // Consonant-Vowel 2-character 2-character
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u] + textLa[u + 1]];
-        } else if ((textLa[u - 1] + textLa[u]) == "k͟h" || (textLa[u - 1] + textLa[u]) == "s̱" || (textLa[u - 1] + textLa[u]) == "ṛh" || (textLa[u - 1] + textLa[u]) == "s̤" || (textLa[u - 1] + textLa[u]) == "h̤" || (textLa[u - 1] + textLa[u]) == "t̤" || (textLa[u - 1] + textLa[u]) == "ž") { // Nuqta cases
-          resultSa = resultSa.slice(0, -3) + latinToDevanagari[textLa[u - 1] + textLa[u] + "a"];
-        } else if (latinToDevanagari[textLa[u - 2] + textLa[u - 1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 2-character 1-character
-          resultSa = resultSa.slice(0, -2) + latinToDevanagari[textLa[u - 2] + textLa[u - 1] + "a"];
-        } else if (anuswaraEndings.indexOf(textLa[u + 1]) > -1) {
+      } else if (latinToDevanagari[input[u - 1] + input[u] + "a"] || (latinToDevanagari[input[u - 2] + input[u - 1] + "a"] && input[u] == "a")) { // Consonant 2-character
+        if (diacritics[input[u] + input[u + 1] + input[u + 2]]) { // Consonant-Vowel 2-character 3-character
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u] + input[u + 1] + input[u + 2]];
+        } else if (diacritics[input[u] + input[u + 1]]) { // Consonant-Vowel 2-character 2-character
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u] + input[u + 1]];
+        } else if ((input[u - 1] + input[u]) == "k͟h" || (input[u - 1] + input[u]) == "s̱" || (input[u - 1] + input[u]) == "ṛh" || (input[u - 1] + input[u]) == "s̤" || (input[u - 1] + input[u]) == "h̤" || (input[u - 1] + input[u]) == "t̤" || (input[u - 1] + input[u]) == "ž") { // Nuqta cases
+          resultSa = resultSa.slice(0, -3) + latinToDevanagari[input[u - 1] + input[u] + "a"];
+        } else if (latinToDevanagari[input[u - 2] + input[u - 1] + "a"] && input[u] == "a") { // Consonant-Vowel 2-character 1-character
+          resultSa = resultSa.slice(0, -2) + latinToDevanagari[input[u - 2] + input[u - 1] + "a"];
+        } else if (anuswaraEndings.indexOf(input[u + 1]) > -1) {
           resultSa = resultSa + "ं";  // Anuswara - C²A  CD²A  C²AC² C²AC¹ CD²AC² CD²AC¹
         } else {
-          resultSa = resultSa.slice(0, -2) + latinToDevanagari[textLa[u - 1] + textLa[u] + "a"] + "्";
+          resultSa = resultSa.slice(0, -2) + latinToDevanagari[input[u - 1] + input[u] + "a"] + "्";
         }
-      } else if (latinToDevanagari[textLa[u] + "a"] || (latinToDevanagari[textLa[u - 1] + "a"] && textLa[u] == "a")) { // Consonant 1-character
-        if (diacritics[textLa[u] + textLa[u + 1] + textLa[u + 2]]) { // Consonant-Vowel 1-character 3-character
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u] + textLa[u + 1] + textLa[u + 2]];
-        } else if (diacritics[textLa[u] + textLa[u + 1]]) { // Consonant-Vowel 1-character 2-character
-          if ((textLa[u] + textLa[u + 1]) == "m̐") { // Anunasika
+      } else if (latinToDevanagari[input[u] + "a"] || (latinToDevanagari[input[u - 1] + "a"] && input[u] == "a")) { // Consonant 1-character
+        if (diacritics[input[u] + input[u + 1] + input[u + 2]]) { // Consonant-Vowel 1-character 3-character
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u] + input[u + 1] + input[u + 2]];
+        } else if (diacritics[input[u] + input[u + 1]]) { // Consonant-Vowel 1-character 2-character
+          if ((input[u] + input[u + 1]) == "m̐") { // Anunasika
             resultSa = resultSa + diacritics["m̐"];
-          } else if (diacritics[textLa[u - 1]] && textLa[u] == " ̃") { // vowel nasalisation
-            resultSa = resultSa.slice(0, -1) + diacritics[textLa[u] + textLa[u + 1]];
+          } else if (diacritics[input[u - 1]] && input[u] == " ̃") { // vowel nasalisation
+            resultSa = resultSa.slice(0, -1) + diacritics[input[u] + input[u + 1]];
           } else {
-            resultSa = resultSa.slice(0, -1) + diacritics[textLa[u] + textLa[u + 1]];
+            resultSa = resultSa.slice(0, -1) + diacritics[input[u] + input[u + 1]];
           }
-        } else if (latinToDevanagari[textLa[u - 1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 1-character 1-character
-          if (textLa[u - 1] == "q" || textLa[u - 1] == "ġ" || textLa[u - 1] == "z" || textLa[u - 1] == "ṛ" || textLa[u - 1] == "f" || textLa[u - 1] == "w") { // Nuqta cases
-            resultSa = resultSa.slice(0, -3) + latinToDevanagari[textLa[u - 1] + "a"];
-          } else if (textLa[u-2] == "a" && textLa[u-1] == "ṇ" && textLa[u] == "a") { 
-            resultSa = resultSa.slice(0, -1) + latinToDevanagari[textLa[u-1] + "a"];
+        } else if (latinToDevanagari[input[u - 1] + "a"] && input[u] == "a") { // Consonant-Vowel 1-character 1-character
+          if (input[u - 1] == "q" || input[u - 1] == "ġ" || input[u - 1] == "z" || input[u - 1] == "ṛ" || input[u - 1] == "f" || input[u - 1] == "w") { // Nuqta cases
+            resultSa = resultSa.slice(0, -3) + latinToDevanagari[input[u - 1] + "a"];
+          } else if (input[u-2] == "a" && input[u-1] == "ṇ" && input[u] == "a") { 
+            resultSa = resultSa.slice(0, -1) + latinToDevanagari[input[u-1] + "a"];
           } else {
-            resultSa = resultSa.slice(0, -2) + latinToDevanagari[textLa[u - 1] + "a"];
+            resultSa = resultSa.slice(0, -2) + latinToDevanagari[input[u - 1] + "a"];
           }
-        } else if ((latinToDevanagari[textLa[u - 2]] != undefined && diacritics[textLa[u - 1]] != undefined && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u + 1]) > -1 && diacritics[textLa[u + 2]] != undefined) || ((textLa[u - 1] == "a" || diacritics[textLa[u - 1]] != undefined) && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u + 1]) > -1)) {
+        } else if ((latinToDevanagari[input[u - 2]] != undefined && diacritics[input[u - 1]] != undefined && anuswaraEndings.indexOf(input[u]) > -1 && letterAfterAnuswara.indexOf(input[u + 1]) > -1 && diacritics[input[u + 2]] != undefined) || ((input[u - 1] == "a" || diacritics[input[u - 1]] != undefined) && anuswaraEndings.indexOf(input[u]) > -1 && letterAfterAnuswara.indexOf(input[u + 1]) > -1)) {
           resultSa = resultSa + "ं"; // Anuswara - C¹A  CD¹A   C¹AC² CD¹AC² C¹AC² CD¹AC² 
         } else {
-          resultSa = resultSa + latinToDevanagari[textLa[u] + "a"] + "्";
+          resultSa = resultSa + latinToDevanagari[input[u] + "a"] + "्";
         }
-      } else if (textLa[u].indexOf("\n") > -1) { // New Lines
+      } else if (input[u].indexOf("\n") > -1) { // New Lines
         resultSa = resultSa + "\n";
-      } else if (latinToDevanagari[textLa[u]] != undefined && latinToDevanagari[textLa[u]] != null && textLa[u] != "") { // Default Single Character
-        if (diacritics[textLa[u]]) {
-          resultSa = resultSa.slice(0, -1) + diacritics[textLa[u]];
+      } else if (latinToDevanagari[input[u]] != undefined && latinToDevanagari[input[u]] != null && input[u] != "") { // Default Single Character
+        if (diacritics[input[u]]) {
+          resultSa = resultSa.slice(0, -1) + diacritics[input[u]];
         } else {
-          resultSa = resultSa + latinToDevanagari[textLa[u]];
+          resultSa = resultSa + latinToDevanagari[input[u]];
         }
       }
     }
 
     return resultSa;
 
-  } else if (textSa && direction == "devanagari2latin") {
+  } else if (input && direction == "devanagari2latin") {
 
     const devanagariToLatin = { "0": "0", "1": "1", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7", "8": "8", "9": "9", "०": "0", "१": "1", "२": "2", "३": "3", "४": "4", "५": "5", "६": "6", "७": "7", "८": "8", "९": "9", " ": " ", "।": ".", "॥": ".", ",": ",", ";": ";", "?": "?", "!": "!", "\"": "\"", "'": "'", "(": "(", ")": ")", ":": ":", "+": "+", "=": "=", "/": "/", "-": "-", "<": "<", ">": ">", "*": "*", "|": "|", "\\": "\\", "₹": "₹", "{": "{", "}": "}", "[": "[", "]": "]", "_": "_", "%": "%", "@": "@", "ˆ": "ˆ", "`": "`", "´": "´", "˜": "˜", "·": "·", "˙": "˙", "¯": "¯", "¨": "¨", "˚": "˚", "˝": "˝", "ˇ": "ˇ", "¸": "¸", "˛": "˛", "˘": "˘", "’": "’", "अ": "a", "आ": "ā", "ॲ": "ê", "ऑ": "ô", "इ": "i", "ई": "ī", "उ": "u", "ऊ": "ū", "ऋ": "r̥", "ॠ": "r̥̄", "ऌ": "l̥", "ॡ": "l̥̄", "ऍ": "ê",  "ऎ": "e", "ए": "ē", "ऐ": "ai", "ऒ": "o", "ओ": "ō", "औ": "au", "अं": "aṁ", "अः": "aḥ", "ँ": "m̐", "क": "ka", "ख": "kha", "ग": "ga", "घ": "gha", "ङ": "ṅa", "च": "ca", "छ": "cha", "ज": "ja", "झ": "jha", "ञ": "ña", "ट": "ṭa", "ठ": "ṭha", "ड": "ḍa", "ढ": "ḍha", "ण": "ṇa", "त": "ta", "थ": "tha", "द": "da", "ध": "dha", "न": "na", "प": "pa", "फ": "pha", "ब": "ba", "भ": "bha", "म": "ma", "य": "ya", "र": "ra", "ल": "la", "व": "va", "श": "śa", "ष": "ṣa", "स": "sa", "ह": "ha", "ळ": "ḷa", "ॐ" : "ōm̐", "a": "a", "b": "b", "c": "c", "d": "d", "e": "e", "f": "f", "g": "g", "h": "h", "i": "i", "j": "j", "k": "k", "l": "l", "m": "m", "n": "n", "o": "o", "p": "p", "q": "q", "r": "r", "s": "s", "t": "t", "u": "u", "v": "v", "w": "w", "x": "x", "y": "y", "z": "z", "A": "A", "B": "B", "C": "C", "D": "D", "E": "E", "F": "F", "G": "G", "H": "H", "I": "I", "J": "J", "K": "K", "L": "L", "M": "M", "N": "N", "O": "O", "P": "P", "Q": "Q", "R": "R", "S": "S", "T": "T", "U": "U", "V": "V", "W": "W", "X": "X", "Y": "Y", "Z": "Z", "॰":"." };
 
@@ -202,101 +193,117 @@ function sanskrittransliterate(type, direction, textLa, textSa) {
 
     let resultLa = "";
     
-    for (let u = 0; u < textSa.length; u++) {
-      if (textSa[u] && diacritics[textSa[u]] && nonPronunced.indexOf(textSa[u]) > -1 && textSa[u - 1] && swaras.indexOf(textSa[u - 1]) > -1) {
+    for (let u = 0; u < input.length; u++) {
+      if (input[u] && diacritics[input[u]] && nonPronunced.indexOf(input[u]) > -1 && input[u - 1] && swaras.indexOf(input[u - 1]) > -1) {
         let ulpaswara1 = ['ॠ', 'ॡ'];
         let ulpaswara2 = ['ऋ', 'ऌ', 'ऐ', 'औ'];
-        if (ulpaswara1.indexOf(textSa[u - 1]) > -1)
+        if (ulpaswara1.indexOf(input[u - 1]) > -1)
           resultLa = resultLa.slice(0, -3);
-        else if (ulpaswara2.indexOf(textSa[u - 1]) > -1)
+        else if (ulpaswara2.indexOf(input[u - 1]) > -1)
           resultLa = resultLa.slice(0, -2);
         else
           resultLa = resultLa.slice(0, -1);
         continue;
-      } else if (textSa[u] != " " && diacritics[textSa[u]] && textSa[u] == "ಁ") {
+      } else if (input[u] != " " && diacritics[input[u]] && input[u] == "ಁ") {
         let lastVowel = resultLa[resultLa.length - 1];
         if (anunasika[lastVowel])
           resultLa = resultLa.slice(0, -1) + anunasika[lastVowel];
         else
           resultLa = resultLa + "m̐";
-      } else if (textSa[u] != " " && diacritics[textSa[u]] && textSa[u - 1] != "अ") {
-        if (textSa[u] != " " && diacritics[textSa[u - 1]] && diacritics[textSa[u]]) {
-          resultLa = resultLa + diacritics[textSa[u]];
-        } else if (textSa[u] == "्") {
+      } else if (input[u] != " " && diacritics[input[u]] && input[u - 1] != "अ") {
+        if (input[u] != " " && diacritics[input[u - 1]] && diacritics[input[u]]) {
+          resultLa = resultLa + diacritics[input[u]];
+        } else if (input[u] == "्") {
           resultLa = resultLa.slice(0, -1);
         } else {
-          if (textSa[u] == "ं" || textSa[u] == "ः") { // Anusvara & Visarga
-            if (textSa[u - 1] && swaras.indexOf(textSa[u - 1])) {
-              resultLa = resultLa + diacritics[textSa[u]];
+          if (input[u] == "ं" || input[u] == "ः") { // Anusvara & Visarga
+            if (input[u - 1] && swaras.indexOf(input[u - 1])) {
+              resultLa = resultLa + diacritics[input[u]];
             } else {
-              resultLa = resultLa.slice(0, -1) + 'a' + diacritics[textSa[u]];
+              resultLa = resultLa.slice(0, -1) + 'a' + diacritics[input[u]];
             }
           } else {
             // Nukta signs in Devanagari
-            if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "क़") {
+            if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "क़") {
               resultLa = resultLa.slice(0, -2) + "q";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "ख़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "ख़") {
               resultLa = resultLa.slice(0, -3) + "k͟h";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "ग़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "ग़") {
               resultLa = resultLa.slice(0, -2) + "ġ";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "ज़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "ज़") {
               resultLa = resultLa.slice(0, -2) + "z";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "झ़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "झ़") {
               resultLa = resultLa.slice(0, -3) + "ž";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u]) == "ड़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u]) == "ड़") {
               resultLa = resultLa.slice(0, -2) + "ṛ";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "ढ़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "ढ़") {
               resultLa = resultLa.slice(0, -3) + "ṛh";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "त़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "त़") {
               resultLa = resultLa.slice(0, -3) + "t̤";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "थ़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "थ़") {
               resultLa = resultLa.slice(0, -3) + "s̱";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "फ़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "फ़") {
               resultLa = resultLa.slice(0, -3) + "f";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "व़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "व़") {
               resultLa = resultLa.slice(0, -2) + "w";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "स़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "स़") {
               resultLa = resultLa.slice(0, -3) + "s̤";
-            } else if (textSa[u] == "़" && textSa[u - 1] && (textSa[u - 1] + textSa[u])  == "ह़") {
+            } else if (input[u] == "़" && input[u - 1] && (input[u - 1] + input[u])  == "ह़") {
               resultLa = resultLa.slice(0, -3) + "h̤";
             } else {
-              resultLa = resultLa.slice(0, -1) + diacritics[textSa[u]];
+              resultLa = resultLa.slice(0, -1) + diacritics[input[u]];
             }
           }
         }
-      } else if (textSa[u - 1] == "अ" && diacritics[textSa[u]] && nonPronunced.indexOf(textSa[u]) == -1) {
-        resultLa = resultLa.slice(0, -1) + devanagariToLatin[textSa[u - 1] + textSa[u]];
-      } else if (textSa[u].indexOf("\n") > -1) {
+      } else if (input[u - 1] == "अ" && diacritics[input[u]] && nonPronunced.indexOf(input[u]) == -1) {
+        resultLa = resultLa.slice(0, -1) + devanagariToLatin[input[u - 1] + input[u]];
+      } else if (input[u].indexOf("\n") > -1) {
         resultLa = resultLa + "\n";
-      } else if (devanagariToLatin[textSa[u]] != undefined && devanagariToLatin[textSa[u]] != null && textSa[u] != "") {
+      } else if (devanagariToLatin[input[u]] != undefined && devanagariToLatin[input[u]] != null && input[u] != "") {
         // Anusvara rule
-        if (textSa[u - 1] && textSa[u - 1] == "ं" && gutturalLetter.indexOf(textSa[u]) > -1) {
-          resultLa = resultLa.slice(0, -1) + "ṅ" + devanagariToLatin[textSa[u]];
-        } else if (textSa[u - 1] && textSa[u - 1] == "ं" && palatalLetter.indexOf(textSa[u]) > -1) {
-          resultLa = resultLa.slice(0, -1) + "ñ" + devanagariToLatin[textSa[u]];
-        } else if (textSa[u - 1] && textSa[u - 1] == "ं" && retroflexLetter.indexOf(textSa[u]) > -1) {
-          resultLa = resultLa.slice(0, -1) + "ṇ" + devanagariToLatin[textSa[u]];
-        } else if (textSa[u - 1] && textSa[u - 1] == "ं" && dentalLetter.indexOf(textSa[u]) > -1) {
-          resultLa = resultLa.slice(0, -1) + "n" + devanagariToLatin[textSa[u]];
-        } else if (textSa[u - 1] && textSa[u - 1] == "ं" && labialApproximateLetter.indexOf(textSa[u]) > -1) {
-          resultLa = resultLa.slice(0, -1) + "m" + devanagariToLatin[textSa[u]];
-        } else if (textSa[u - 1] && textSa[u - 1] == "ं" && gutturalLetter.indexOf(textSa[u]) == -1 && palatalLetter.indexOf(textSa[u]) == -1 && retroflexLetter.indexOf(textSa[u]) == -1 && dentalLetter.indexOf(textSa[u]) == -1 && labialApproximateLetter.indexOf(textSa[u]) == -1 && textSa[u] == " ") {
-          resultLa = resultLa.slice(0, -1) + "ṁ" + devanagariToLatin[textSa[u]];
+        if (input[u - 1] && input[u - 1] == "ं" && gutturalLetter.indexOf(input[u]) > -1) {
+          resultLa = resultLa.slice(0, -1) + "ṅ" + devanagariToLatin[input[u]];
+        } else if (input[u - 1] && input[u - 1] == "ं" && palatalLetter.indexOf(input[u]) > -1) {
+          resultLa = resultLa.slice(0, -1) + "ñ" + devanagariToLatin[input[u]];
+        } else if (input[u - 1] && input[u - 1] == "ं" && retroflexLetter.indexOf(input[u]) > -1) {
+          resultLa = resultLa.slice(0, -1) + "ṇ" + devanagariToLatin[input[u]];
+        } else if (input[u - 1] && input[u - 1] == "ं" && dentalLetter.indexOf(input[u]) > -1) {
+          resultLa = resultLa.slice(0, -1) + "n" + devanagariToLatin[input[u]];
+        } else if (input[u - 1] && input[u - 1] == "ं" && labialApproximateLetter.indexOf(input[u]) > -1) {
+          resultLa = resultLa.slice(0, -1) + "m" + devanagariToLatin[input[u]];
+        } else if (input[u - 1] && input[u - 1] == "ं" && gutturalLetter.indexOf(input[u]) == -1 && palatalLetter.indexOf(input[u]) == -1 && retroflexLetter.indexOf(input[u]) == -1 && dentalLetter.indexOf(input[u]) == -1 && labialApproximateLetter.indexOf(input[u]) == -1 && input[u] == " ") {
+          resultLa = resultLa.slice(0, -1) + "ṁ" + devanagariToLatin[input[u]];
         } else {
-          resultLa = resultLa + devanagariToLatin[textSa[u]];
+          resultLa = resultLa + devanagariToLatin[input[u]];
         }
       }
     }
     return resultLa;
   }
-  /*  Use of NPM after install
-
-    sanskrittransliterate("SLP","latin2devanagari","saMskfta",""); // Expected return 'संस्कृत'
-    sanskrittransliterate("HK","latin2devanagari","saMskRta",""); // Expected return 'संस्कृत'
-    sanskrittransliterate("IAST","latin2devanagari","saṃskṛta",""); // Expected return 'संस्कृत'
-    sanskrittransliterate("ISO","latin2devanagari","samskr̥ta",""); // Expected return 'संस्कृत'
-
-    sanskrittransliterate("ISO","devanagari2latin","","संस्कृता"); // Expected return 'samskr̥ta'
-  */
+  return "";
 }
 module.exports = sanskrittransliterate;
+/*  
+  Devanagari : https://en.wikipedia.org/wiki/Devanagari
+  Devanagari Transliterations : https://en.wikipedia.org/wiki/Devanagari_transliteration
+  Devanagari Unicode Block : https://www.unicode.org/charts/PDF/U0900.pdf
+  Devanagari Extended Unicode Block : https://www.unicode.org/charts/PDF/UA8E0.pdf
+  Devanagari Extended-A Unicode Block : https://www.unicode.org/charts/PDF/U11B00.pdf
+  Vedic Extensions Unicode Block : https://www.unicode.org/charts/PDF/U1CD0.pdf  
+*/
+/*
+  Github : https://github.com/Vyshantha/devanagari-transliterate/
+  NPM Package : https://www.freecodecamp.org/news/how-to-create-and-publish-your-first-npm-package/
+    https://snyk.io/blog/best-practices-create-modern-npm-package/
+    https://docs.npmjs.com/creating-node-js-modules
+
+  npm init
+  npm link (test)
+  npm link <name-of-package>
+  node script.js
+
+  npm login
+  npm publish
+
+  npm install <name-of-package>
+*/
