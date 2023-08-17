@@ -9,8 +9,7 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
 
     let resultSa = "";
 
-    // TODO : NPM build 
-    // TODO : Input ( ISO-15919 | IAST | SLP | HK ) converted live to ISO-15919 (except Vedic accents) and transliterate to Devanagari
+    // Input ( ISO-15919 | IAST | SLP | HK ) converted live to ISO-15919 and transliterate to Devanagari
       
     if (type == "SLP") {
       
@@ -18,8 +17,6 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
 
       diacritics = { "ā": "ा", "ê": "ॅ", "ô": "ॉ", "i": "ि", "ī": "ी", "u": "ु", "ū": "ू", "r̥": "ृ", "r̥̄": "ॄ", "l̥": "ॢ", "l̥̄": "ೣ", "e": "ॆ", "ē": "े", "ai": "ै", "o": "ॊ", "ō": "ो", "au": "ौ", "aṇ": "ं", "aṁ": "ं", "aḥ": "ः", "ʾ": "़", "m̐": "ँ", "'": "ऽ", "’":"ऽ", "˜": "ँ", "ã": "ँ", "ā̃": "ाँ", "ĩ": "िँ", "ī̃": "ीँ", "ũ": "ुँ", "ū̃": "ूँ", "r̥̃": "ृँ", "ṝ̃": "ॄँ", "ẽ": "ॆँ", "ē̃": "ेँ", "õ": "ॊँ", "ō̃": "ोँ" };
       
-      // TODO - const vedicAccents = {"\u0951":"\u0951", "\u0952":"\u0952", "\u1ce0":"\u1ce0", "\u1CF5":"\u1CF5", "\u1CF6":"\u1CF6"} 
-
       anuswaraEndings = ['ṁ', 'ṇ', 'ṅ', 'ñ', 'n', 'm'];
       letterAfterAnuswara = ['k', 'g', 'c', 'j', 'ṭ', 'ḍ', 't', 'd', 'p', 'b', 'y', 'r', 'v', 'ś', 'ṣ', 's', 'h'];
       longVyanjana = ['k', 'g', 'c', 'j', 'ṭ', 'ḍ', 't', 'd'];
@@ -55,9 +52,6 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
       const HK2ISO = {"a": "a", "A": "ā", "i": "i", "I": "ī", "u": "u", "U": "ū", "R": "r̥", "RR": "r̥̄", "lR": "l̥", "lRR": "l̥̄", "e": "ē", "AI": "ai", "o": "ō", "au": "au", "aM": "aṁ", "aH": "aḥ", "k": "k", "kh": "kh", "g": "g", "gh": "gh", "G": "ṅ", "c": "c", "ch": "ch", "j": "j", "jh": "jh", "J": "ñ", "T": "ṭ", "Th": "ṭh", "D": "ḍ", "Dh": "ḍh", "N": "ṇ", "t": "t", "th": "th", "d": "d", "dh": "dh", "n": "n", "p": "p", "ph": "ph", "b": "b", "bh": "bh", "m": "m", "y": "y", "r": "r", "l": "l", "v": "v", "z": "ś", "S": "ṣ", "s": "s", "h": "h", "L": "ḷ"}; */
       input = input.replaceAll("AI","ai").replaceAll("aM","aṁ").replaceAll("aH","aḥ").replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("lRR","l̥̄").replaceAll("RR","r̥̄").replaceAll("lR","l̥").replaceAll("R","r̥").replaceAll("e","ē").replaceAll("o","ō").replaceAll("~","m̐").replaceAll("G","ṅ").replaceAll("J","ñ").replaceAll("Th","ṭh").replaceAll("T","ṭ").replaceAll("Dh","ḍh").replaceAll("D","ḍ").replaceAll("N","ṇ").replaceAll("z","ś").replaceAll("S","ṣ").replaceAll("L","ḷ");
 
-      // TODO : Vedic accents not encoded ?
-      // TODO : lR - ऌ or lRR - ॡ to handle lR - लृ or lRR - लॄ resp.
-
       if (ISOOnly) {
         return input;
       }
@@ -78,8 +72,6 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
       input = input.toLowerCase();
       input = input.replaceAll("ṃ","ṁ").replaceAll("ã","m̐").replaceAll("E","Ē").replaceAll("O","Ō").replaceAll("Ṛ","R̥").replaceAll("Ṝ","R̥̄").replaceAll("Ḷ","L̥").replaceAll("Ḹ","L̥̄").replaceAll("e","ē").replaceAll("o","ō").replaceAll("ṛ","r̥").replaceAll("ṝ","r̥̄").replaceAll("ḷ","l̥").replaceAll("ḹ","l̥̄").replaceAll("Ḻ","Ḷ").replaceAll("ḻ","ḷ");
 
-      // TODO - Vedic accent not encoded ?
-
       if (ISOOnly) {
         return input;
       }
@@ -98,9 +90,6 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
       anunasika = { "ã": "a", "ā̃": "ā", "ĩ": "i", "ī̃": "ī", "ũ": "u", "ū̃": "ū", "r̥̃": "r̥", "ṝ̃": "r̥̄", "ẽ": "e", "ē̃": "ē", "õ": "o", "ō̃": "ō" };
 
       input = input.toLowerCase();
-
-      // TODO : Vedic accents not encoded ?
-
     }
 
     for (let u = 0; u < input.length; u++) {
@@ -180,6 +169,30 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
         } else {
           resultSa = resultSa + latinToDevanagari[input[u]];
         }
+      }
+    }
+
+    if (type == "HK" && (resultSa.indexOf("ऌ") > -1 || resultSa.indexOf("ॡ") > -1 || resultSa.indexOf("ॢ") > -1 || resultSa.indexOf("ೣ") > -1)) { // lR - ऌ or lRR - ॡ to handle lR - लृ or lRR - लॄ resp.
+      if (resultSa.indexOf(' ') == -1) { 
+        resultSa = resultSa + ' ' + resultSa.replaceAll("ೣ","लॄ").replaceAll("ॢ","लृ").replaceAll("ॡ",'लॄ').replaceAll("ऌ",'लृ');
+      } else {
+        let unprocessed = resultSa.split(" ");
+        let processed = "";
+
+        for (let i = 0; i < unprocessed.length; i++) {
+          if (unprocessed[i].indexOf("ऌ") > -1){
+            processed = processed + unprocessed[i] + ' ' + unprocessed[i].replaceAll("ऌ","लृ") + ' ';
+          } else if (unprocessed[i].indexOf("ॡ") > -1){
+            processed = processed + unprocessed[i] + ' ' + unprocessed[i].replaceAll("ॡ","लॄ") + ' ';
+          } else if (unprocessed[i].indexOf("ॢ") > -1){
+            processed = processed + unprocessed[i] + ' ' + unprocessed[i].replaceAll("ॢ","लृ") + ' ';
+          } else if (unprocessed[i].indexOf("ೣ") > -1){
+            processed = processed + unprocessed[i] + ' ' + unprocessed[i].replaceAll("ೣ","लॄ") + ' ';
+          } else {
+            processed = processed + unprocessed[i] + ' ';
+          }
+        }
+        resultSa = processed;
       }
     }
 
