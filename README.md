@@ -6,6 +6,19 @@ Node Package to transliterate between देवनागरी (devanāgarī) an
 const sanskrittransliterate = require("devanagari-transliterate");
 ```
 
+Method usage ```sanskrittransliterate(type, direction, input, ISOOnly)```
+> type
+>> 'SLP' or 'H-K' or 'IAST' or 'ISO'
+
+> direction
+>> 'latin2kannada' or 'kannada2latin'
+
+> input
+>> text in SLP-1 for devanāgarī or text in Harvard-Kyoto for devanāgarī or text in IAST for devanāgarī or text in ISO-15919 for devanāgarī or text in देवनागरी
+
+> ISOOnly
+>> true or false
+
 > SLP-1 transliteration examples :
 ```
 console.log('SLP >> देवनागरी : ', sanskrittransliterate("SLP","latin2devanagari","saMskfta", false));  
