@@ -74,7 +74,6 @@ console.log('देवनागरी >> ISO : ', sanskrittransliterate("ISO","l
 ```
 console.log('देवनागरी >> ISO : ', sanskrittransliterate("ISO","devanagari2latin","संस्कृता", false)); 
     // Expected देवनागरी >> ISO with strict nasalisation :  samskr̥tā
-
 ```
 
 ## License
