@@ -85,6 +85,9 @@ console.log('देवनागरी >> ISO : ', sanskrittransliterate("ISO","d
     // Expected देवनागरी >> ISO with strict nasalisation :  samskr̥tā
 ```
 
+## Execution 
+Given the above JavaScript code is included into a script.js file : ```node script.js```
+
 ## License
 Distributed under the MIT License. See LICENSE for more information.
 
