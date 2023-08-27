@@ -14,16 +14,25 @@ const sanskrittransliterate = require("devanagari-transliterate");
 ### Method call in code 
 ```sanskrittransliterate(type, direction, input, ISOOnly)```
 > type
->> 'SLP' or 'H-K' or 'IAST' or 'ISO'
+>> 'SLP' \
+>> 'HK' \
+>> 'IAST' \
+>> 'ISO'
 
 > direction
->> 'latin2devanagari' or 'devanagari2latin'
+>> 'latin2devanagari' \
+>> 'devanagari2latin'
 
 > input
->> text in SLP-1 for devanāgarī or text in Harvard-Kyoto for devanāgarī or text in IAST for devanāgarī or text in ISO-15919 for devanāgarī or text in देवनागरी
+>> text in SLP-1 for devanāgarī \
+>> text in Harvard-Kyoto for devanāgarī \
+>> text in IAST for devanāgarī \
+>> text in ISO-15919 for devanāgarī \
+>> text in देवनागरी
 
 > ISOOnly
->> true or false
+>> true \
+>> false
 
 ### SLP-1 transliteration examples :
 
