@@ -1,5 +1,5 @@
-function sanskrittransliterate(type, direction, input, ISOOnly) {
-  if (input && direction == "latin2devanagari") {
+function sanskrittransliterate(type, direction, input) {
+  if (input && (direction === "latin2devanagari" || direction === "latin2ISO")) {
     var latinToDevanagari;
     var diacritics;
     var anuswaraEndings;
@@ -33,7 +33,7 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
       input = input.replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("f","r̥").replaceAll("F","r̥̄").replaceAll("x","l̥").replaceAll("X","l̥̄").replaceAll("e","ē").replaceAll("E","ai").replaceAll("o","ō").replaceAll("O","au").replaceAll("M","ṁ").replaceAll("H","ḥ").replaceAll("~","m̐").replaceAll("K","kh").replaceAll("G","gh").replaceAll("N","ṅ").replaceAll("C","ch").replaceAll("J","jh").replaceAll("Y","ñ").replaceAll("w","ṭ").replaceAll("W","ṭh").replaceAll("q","ḍ").replaceAll("Q","ḍh").replaceAll("R","ṇ").replaceAll("T","th").replaceAll("D","dh").replaceAll("P","ph").replaceAll("B","bh").replaceAll("S","ś").replaceAll("z","ṣ").replaceAll("L","ḷ").replaceAll("^","̍").replaceAll("ˆ","̍").replaceAll("â","a̍").replaceAll("ê","e̍").replaceAll("î","i̍").replaceAll("ô","o̍").replaceAll("û","u̍").replaceAll("ā̂","ā̍").replaceAll("ē̂","ē̍").replaceAll("ī̂","ī̍").replaceAll("ō̂","ō̍").replaceAll("ū̂","ū̍").replaceAll("\\","̱").replaceAll("/","\uA8EB").replaceAll("Z","\u1CF5").replaceAll("V","\u1CF6"); 
       // When required : Ā̀ Â Ā̂ Ā́ Ḕ Ê Ē̂ Ḗ Ī̀ Î Ī̂ Ī́ Ṑ Ô Ō̂ Ṓ Ū̀ Û Ū̂ Ū́ : all combinations for Vedic accents
 
-      if (ISOOnly) {
+      if (direction === "latin2ISO") {
         return input;
       }
 
@@ -53,7 +53,7 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
       const HK2ISO = {"a": "a", "A": "ā", "i": "i", "I": "ī", "u": "u", "U": "ū", "R": "r̥", "RR": "r̥̄", "lR": "l̥", "lRR": "l̥̄", "e": "ē", "AI": "ai", "o": "ō", "au": "au", "aM": "aṁ", "aH": "aḥ", "k": "k", "kh": "kh", "g": "g", "gh": "gh", "G": "ṅ", "c": "c", "ch": "ch", "j": "j", "jh": "jh", "J": "ñ", "T": "ṭ", "Th": "ṭh", "D": "ḍ", "Dh": "ḍh", "N": "ṇ", "t": "t", "th": "th", "d": "d", "dh": "dh", "n": "n", "p": "p", "ph": "ph", "b": "b", "bh": "bh", "m": "m", "y": "y", "r": "r", "l": "l", "v": "v", "z": "ś", "S": "ṣ", "s": "s", "h": "h", "L": "ḷ"}; */
       input = input.replaceAll("AI","ai").replaceAll("aM","aṁ").replaceAll("aH","aḥ").replaceAll("A","ā").replaceAll("I","ī").replaceAll("U","ū").replaceAll("lRR","l̥̄").replaceAll("RR","r̥̄").replaceAll("lR","l̥").replaceAll("R","r̥").replaceAll("e","ē").replaceAll("o","ō").replaceAll("~","m̐").replaceAll("G","ṅ").replaceAll("J","ñ").replaceAll("Th","ṭh").replaceAll("T","ṭ").replaceAll("Dh","ḍh").replaceAll("D","ḍ").replaceAll("N","ṇ").replaceAll("z","ś").replaceAll("S","ṣ").replaceAll("L","ḷ");
 
-      if (ISOOnly) {
+      if (direction === "latin2ISO") {
         return input;
       }
 
@@ -73,7 +73,7 @@ function sanskrittransliterate(type, direction, input, ISOOnly) {
       input = input.toLowerCase();
       input = input.replaceAll("ṃ","ṁ").replaceAll("ã","m̐").replaceAll("E","Ē").replaceAll("O","Ō").replaceAll("Ṛ","R̥").replaceAll("Ṝ","R̥̄").replaceAll("Ḷ","L̥").replaceAll("Ḹ","L̥̄").replaceAll("e","ē").replaceAll("o","ō").replaceAll("ṛ","r̥").replaceAll("ṝ","r̥̄").replaceAll("ḷ","l̥").replaceAll("ḹ","l̥̄").replaceAll("Ḻ","Ḷ").replaceAll("ḻ","ḷ");
 
-      if (ISOOnly) {
+      if (direction === "latin2ISO") {
         return input;
       }
 
